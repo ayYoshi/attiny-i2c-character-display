@@ -1,5 +1,6 @@
 #include <avr/io.h>
 #include <util/delay.h>
+#include "shift.h"
 int main(int argc, char *argv[]) {
   // pins used for i2c: PB0, PB2
   // pins used for shift register: PB1, PB3, PB4
