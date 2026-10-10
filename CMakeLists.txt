@@ -11,7 +11,7 @@ set(ATTINY_I2C_INC_PATH "${CMAKE_SOURCE_DIR}/include/usitwislave/")
 set(BAUD 19200)
 
 file(GLOB SRC src/*.c)
-file(GLOB ATTINY-I2C_SRC ${ATTINY-I2C_INC_PATH}/*.c ${ATTINY-I2C_INC_PATH}/*.cpp)
+file(GLOB ATTINY_I2C_SRC ${ATTINY_I2C_INC_PATH}/*.c ${ATTINY_I2C_INC_PATH}/*.cpp)
 
 #avr-gcc -Os -mmcu=attiny85 main.c -o main -DF_CPU=8000000ul
 #avr-objcopy -O ihex -R .eeprom main main.hex
@@ -25,7 +25,7 @@ set(PROGRAMMER_ID "avrisp")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_executable(${PROJECT_NAME} ${SRC} ${TINYWIRE_SRC})
+add_executable(${PROJECT_NAME} ${SRC} ${ATTINY_I2C_SRC})
 target_include_directories(${PROJECT_NAME} PUBLIC ${AVR_INC_PATH} ${ATTINY_I2C_INC_PATH})
 
 set(CMAKE_C_FLAGS "-Os -DF_CPU=${CPU_FREQ} -mmcu=${MMCU}") 
