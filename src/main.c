@@ -13,23 +13,13 @@ int main(int argc, char *argv[]) {
   DDRB |= (1 << DDB4);
 
   while (1) {
-    PORTB |= (1 << PORTB1);
     for (int i = 0; i < 4; i++) {
-      PORTB |= (1 << PORTB3);
-      PORTB |= (1 << PORTB4);
+      send_bit(1);
       _delay_ms(500);
-      PORTB &= ~(1 << PORTB3);
-      PORTB &= ~(1 << PORTB4);
-      _delay_ms(10);
     }
-    PORTB &= ~(1 << PORTB1);
     for (int i = 0; i < 4; i++) {
-      PORTB |= (1 << PORTB3);
-      PORTB |= (1 << PORTB4);
+      send_bit(0);
       _delay_ms(500);
-      PORTB &= ~(1 << PORTB3);
-      PORTB &= ~(1 << PORTB4);
-      _delay_ms(10);
     }
   }
 }
