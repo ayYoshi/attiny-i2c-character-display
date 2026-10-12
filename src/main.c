@@ -13,13 +13,10 @@ int main(int argc, char *argv[]) {
   DDRB |= (1 << DDB4);
 
   while (1) {
-    for (int i = 0; i < 4; i++) {
-      send_bit(1);
-      _delay_ms(500);
-    }
-    for (int i = 0; i < 4; i++) {
-      send_bit(0);
-      _delay_ms(500);
+    for (int i = 16; i < 255; i++) {
+      send_byte((uint8_t)i);
+      _delay_ms(50);
     }
   }
+  
 }

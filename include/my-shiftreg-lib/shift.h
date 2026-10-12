@@ -25,6 +25,7 @@ void SET_SER_VAL(uint8_t bit);
 void send_bit(uint8_t bit);
 
 // Send 8 consecutive bits on the DATA Bus and toggle the Output Clock
+// NOTE: LSB will be on Pin 1 (First Bit on Shift Register), MSB on Pin 8 (Last Bit on Shift Register)
 void send_byte(uint8_t byte);
 
 // Clear the memory of the input register AND toggle the Output Clock
